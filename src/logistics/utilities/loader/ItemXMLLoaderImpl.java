@@ -17,23 +17,28 @@ import java.util.ArrayList;
 /**
  * Created by uchennafokoye on 4/22/16.
  */
-public class ItemXMLLoaderImpl implements ItemLoader {
+public class ItemXMLLoaderImpl implements ItemLoader 
+{
 
     private String filepath;
-    public ItemXMLLoaderImpl(String filepath){
+    public ItemXMLLoaderImpl(String filepath)
+    {
         this.filepath = filepath;
     }
 
-    public ArrayList<Item> load() throws LoaderFileNotFoundException {
+    public ArrayList<Item> load() throws LoaderFileNotFoundException 
+    {
 
         ArrayList<Item> items = new ArrayList<Item>();
 
-        try {
+        try 
+        {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
 
             File xml = new File(filepath);
-            if (!xml.exists()) {
+            if (!xml.exists()) 
+            {
                 throw new LoaderFileNotFoundException();
             }
 
@@ -42,16 +47,19 @@ public class ItemXMLLoaderImpl implements ItemLoader {
             documentElement.normalize();
 
             NodeList itemEntries = documentElement.getChildNodes();
-            for (int i = 0; i < itemEntries.getLength(); i++) {
+            for (int i = 0; i < itemEntries.getLength(); i++) 
+            {
                 Node node = itemEntries.item(i);
-                if (node.getNodeType() == Node.TEXT_NODE) {
+                if (node.getNodeType() == Node.TEXT_NODE) 
+                {
                     continue;
                 }
 
                 String entryName = node.getNodeName();
-                if (!entryName.equals("item")) {
+                if (!entryName.equals("item")) 
+                {
                     continue;
-//                    Or perhaps throw an error
+                    //Or perhaps throw an error
                 }
 
                 NamedNodeMap attributes = node.getAttributes();
@@ -63,20 +71,22 @@ public class ItemXMLLoaderImpl implements ItemLoader {
 
                 Item item = ItemFactory.build(id, price);
 
-//                System.out.println("No " + i + ": Item price: " + price + " Item Id: " + id);
+                // System.out.println("No " + i + ": Item price: " + price + " Item Id: " + id);
                 items.add(item);
-
             }
-
-
-        } catch (ParserConfigurationException e) {
+        } 
+        catch (ParserConfigurationException e) 
+        {
             e.printStackTrace();
-        } catch (SAXException e) {
+        } 
+        catch (SAXException e) 
+        {
             e.printStackTrace();
-        } catch (IOException e) {
+        } 
+        catch (IOException e) 
+        {
             e.printStackTrace();
         }
-
 
         return items;
     }
@@ -86,12 +96,13 @@ public class ItemXMLLoaderImpl implements ItemLoader {
     public static void main(String[] args){
 
         ItemXMLLoaderImpl xmlLoader =  new ItemXMLLoaderImpl("data/item_catalog.xml");
-        try {
+        try 
+        {
             xmlLoader.load();
-        } catch (LoaderFileNotFoundException e) {
+        } 
+        catch (LoaderFileNotFoundException e) 
+        {
             e.printStackTrace();
         }
-
-
     }
 }

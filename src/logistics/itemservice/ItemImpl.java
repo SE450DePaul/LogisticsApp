@@ -8,24 +8,29 @@ public class ItemImpl implements Item
     private String id;
     private Double price;
 
-    public ItemImpl(String id, Double price){
+    public ItemImpl(String id, Double price)
+    {
         setId(id);
         setPrice(price);
     }
 
-    public String getId() {
+    public String getId() 
+    {
         return id;
     }
 
-    public void setId(String id){
+    public void setId(String id)
+    {
         this.id = id;
     }
 
-    public void setPrice(Double price){
+    public void setPrice(Double price)
+    {
         this.price = price;
     }
 
-    public Double getPrice() {
+    public Double getPrice() 
+    {
         return price;
     }
 }
