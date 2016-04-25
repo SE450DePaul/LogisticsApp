@@ -17,19 +17,21 @@ import org.xml.sax.SAXException;
 
 import logistics.exceptions.LoaderFileNotFoundException;
 import logistics.facilityinvtservice.FacilityInventorable;
+import logistics.facilityinvtservice.FacilityInvFactory;
 
-public class InventoryXmlLoaderImpl implements XmlLoadable
+public class InventoryXmlLoaderImpl //implements XmlLoadable
 {
 
 	 private String itemId;
 	 private Integer itemQty;
 	 private String filepath;
+	 
 	 public InventoryXmlLoaderImpl(String path)
 	 {
 	        filepath = path;
 	 }
 	
-	    public ArrayList<FacilityInventorable> load() throws LoaderFileNotFoundException 
+	    public void /*ArrayList<FacilityInventorable>*/ load() throws LoaderFileNotFoundException 
 	    {
 
 	        ArrayList<FacilityInventorable> facilityinvs = new ArrayList<FacilityInventorable>();
@@ -42,7 +44,7 @@ public class InventoryXmlLoaderImpl implements XmlLoadable
 	            File xml = new File(filepath);
 	            if (!xml.exists()) 
 	            {
-	                /*System.out.println("File does not exist")*/throw new LoaderFileNotFoundException();
+	                System.out.println("File does not exist"); /*throw new LoaderFileNotFoundException();*/
 	            }
 
 	            Document doc = db.parse(xml);
@@ -65,9 +67,9 @@ public class InventoryXmlLoaderImpl implements XmlLoadable
 	                    //Or perhaps throw an error
 	                }
 
-	                NamedNodeMap attributes = node.getAttributes();
-	                Node namedItem = attributes.getNamedItem("id");
-	                String id = namedItem.getNodeValue();
+	               NamedNodeMap attributes = node.getAttributes();
+	              Node namedItem = attributes.getNamedItem("id");
+	               String id = namedItem.getNodeValue();
 	                Element element = (Element) facilityInvEntries.item(i);
 	                NodeList nameNode = element.getElementsByTagName("name");
 	                String name = nameNode.item(0).getTextContent();
@@ -102,7 +104,7 @@ public class InventoryXmlLoaderImpl implements XmlLoadable
 	                
 	                
 
-	                FacilityInvable facilityinv = FacilityInvFactory.build(name, itemId, itemQty );
+	                FacilityInventorable facilityinv = FacilityInvFactory.build(name, itemId, itemQty );
 
 	                System.out.println("Facility " + i + " : " + name + "Items: " + itemId + " Quantity " + itemQty);
 	                facilityinvs.add(facilityinv);
@@ -121,14 +123,14 @@ public class InventoryXmlLoaderImpl implements XmlLoadable
 	            e.printStackTrace();
 	        }
 
-	        return facilityinvs;
+	        //return facilityinvs;
 	    }
 
 
 
 	    public static void main(String[] args){
 
-	        InventoryXmlLoaderImpl xmlLoader =  new InventoryXmlLoaderImpl("src/data/facilty_inventory.xml");
+	        InventoryXmlLoaderImpl xmlLoader =  new InventoryXmlLoaderImpl("src/data/facility_inventory.xml");
 	        try 
 	        {
 	            xmlLoader.load();

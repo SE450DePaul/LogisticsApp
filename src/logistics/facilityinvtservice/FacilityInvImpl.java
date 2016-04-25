@@ -3,7 +3,7 @@ package logistics.facilityinvtservice;
 /**
  * Created by uchennafokoye on 4/22/16.
  */
-public class FacilityInvImpl implements FacilityInventable
+public class FacilityInvImpl implements FacilityInventorable
 {
     private String facilityName;
     private String inventoryId;

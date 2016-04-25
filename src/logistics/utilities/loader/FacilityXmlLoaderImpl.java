@@ -31,7 +31,7 @@ public class FacilityXmlLoaderImpl implements XmlLoadable
 	    public ArrayList<Facilitable> load() throws LoaderFileNotFoundException 
 	    {
 
-	        ArrayList<Facilitable>> facilities = new ArrayList<Facilitable>();
+	        ArrayList<Facilitable> facilities = new ArrayList<Facilitable>();
 
 	        try 
 	        {

@@ -6,8 +6,8 @@ package logistics.facilityservice;
 public class FacilityFactory 
 {
 
-    public static Facilitable build(String id, Double price)
+    public static Facilitable build(String facilityName, Double facilityRate, Double facilityCost)
     {
-        return new FacilityImpl(id, price);
+        return new FacilityImpl(facilityName, facilityRate, facilityCost);
     }
 }

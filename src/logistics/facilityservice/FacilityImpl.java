@@ -19,7 +19,6 @@ public class FacilityImpl implements Facilitable
 	public void setName(String name) 
 	{
 		facilityName = name;
-		
 	}
 
 	public String getName() 
@@ -27,11 +26,9 @@ public class FacilityImpl implements Facilitable
 		return facilityName;
 	}
 
-	
 	public void setRate(Double rate) 
 	{
 		facilityRate = rate;
-		
 	}
 
 	public Double getRate() 
@@ -42,7 +39,6 @@ public class FacilityImpl implements Facilitable
 	public void setCost(Double cost) 
 	{
 		facilityCost = cost;
-		
 	}
 
 	public Double getCost() 
