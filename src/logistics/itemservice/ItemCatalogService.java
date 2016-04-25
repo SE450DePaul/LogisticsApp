@@ -23,7 +23,7 @@ public final class ItemCatalogService
 
     private ItemCatalogService() 
     {
-            loader = new XmlLoaderFactoryImpl();
+          /*  loader = new XmlLoaderFactoryImpl();
     		
             
             try 
@@ -33,7 +33,7 @@ public final class ItemCatalogService
             catch (LoaderFileNotFoundException e) 
             {
                 e.printStackTrace();
-            }
+            }*/
     }
 
    /* public XmlLoadable xmlload(String filetype, String filepath) 

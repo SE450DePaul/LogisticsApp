@@ -21,9 +21,9 @@ public class ItemXmlLoaderImpl implements XmlLoadable
 {
 
     private String filepath;
-    public ItemXmlLoaderImpl(String filepath)
+    public ItemXmlLoaderImpl(String path)
     {
-        this.filepath = filepath;
+        path = filepath;
     }
 
     public ArrayList<Itemable> load() throws LoaderFileNotFoundException 
