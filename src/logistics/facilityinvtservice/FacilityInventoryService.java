@@ -16,7 +16,7 @@ public final class FacilityInventoryService
 
     private volatile static FacilityInventoryService instance;
     
-    private ArrayList<Itemable> items = new ArrayList<Itemable>();
+    private ArrayList<FacilityInventorable> items = new ArrayList<FacilityInventorable>();
     
     private XmlLoaderFactoryImpl loader;
     private XmlLoadable file;

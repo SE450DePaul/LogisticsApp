@@ -5,32 +5,48 @@ package logistics.facilityservice;
  */
 public class FacilityImpl implements Facilitable
 {
-    private String id;
-    private Double price;
+    private String facilityName;
+    private Double facilityRate;
+    private Double facilityCost;
 
-    public FacilityImpl(String id, Double price)
+    public FacilityImpl(String name, Double rate, Double cost)
     {
-        setId(id);
-        setPrice(price);
+        setName(name);
+        setRate(rate);
+        setCost(cost);
     }
 
-    public String getId() 
-    {
-        return id;
-    }
+	public void setName(String name) 
+	{
+		facilityName = name;
+		
+	}
 
-    public void setId(String id)
-    {
-        this.id = id;
-    }
+	public String getName() 
+	{
+		return facilityName;
+	}
 
-    public void setPrice(Double price)
-    {
-        this.price = price;
-    }
+	
+	public void setRate(Double rate) 
+	{
+		facilityRate = rate;
+		
+	}
 
-    public Double getPrice() 
-    {
-        return price;
-    }
+	public Double getRate() 
+	{
+		return facilityRate;
+	}
+	
+	public void setCost(Double cost) 
+	{
+		facilityCost = cost;
+		
+	}
+
+	public Double getCost() 
+	{
+		return facilityCost;
+	}
 }

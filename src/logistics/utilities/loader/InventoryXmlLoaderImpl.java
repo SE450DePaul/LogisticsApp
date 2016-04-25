@@ -16,22 +16,23 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import logistics.exceptions.LoaderFileNotFoundException;
-import logistics.itemservice.ItemFactory;
-import logistics.itemservice.Itemable;
+import logistics.facilityinvtservice.FacilityInventorable;
 
 public class InventoryXmlLoaderImpl implements XmlLoadable
 {
 
+	 private String itemId;
+	 private Integer itemQty;
 	 private String filepath;
 	 public InventoryXmlLoaderImpl(String path)
 	 {
 	        filepath = path;
 	 }
 	
-	    public ArrayList<Itemable> load() throws LoaderFileNotFoundException 
+	    public ArrayList<FacilityInventorable> load() throws LoaderFileNotFoundException 
 	    {
 
-	        ArrayList<Itemable> items = new ArrayList<Itemable>();
+	        ArrayList<FacilityInventorable> facilityinvs = new ArrayList<FacilityInventorable>();
 
 	        try 
 	        {
@@ -69,7 +70,7 @@ public class InventoryXmlLoaderImpl implements XmlLoadable
 	                String id = namedItem.getNodeValue();
 	                Element element = (Element) facilityInvEntries.item(i);
 	                NodeList nameNode = element.getElementsByTagName("name");
-	              //  Double price = Double.parseDouble(priceNode.item(0).getTextContent());
+	                String name = nameNode.item(0).getTextContent();
 	                
 	             // Get all nodes named "Item" - there can be 0 or more
 	                ArrayList<String> itemDescriptions = new ArrayList<>();
@@ -90,8 +91,9 @@ public class InventoryXmlLoaderImpl implements XmlLoadable
 
 	                    // Get some named nodes
 	                    element = (Element) itemList.item(j);
-	                    String itemId = element.getElementsByTagName("id").item(0).getTextContent();
+	                    itemId = element.getElementsByTagName("id").item(0).getTextContent();
 	                    String itemQuantity = element.getElementsByTagName("quantity").item(0).getTextContent();
+	                    itemQty = Integer.parseInt(itemQuantity);
 	                    
 	                 // Create a string summary of the item
 	                    itemDescriptions.add(itemId + "with Quantity " + itemQuantity);
@@ -100,10 +102,10 @@ public class InventoryXmlLoaderImpl implements XmlLoadable
 	                
 	                
 
-	                Itemable item = ItemFactory.build(id, price);
+	                FacilityInvable facilityinv = FacilityInvFactory.build(name, itemId, itemQty );
 
-	                System.out.println("No " + i + ": Item price: " + price + " Item Id: " + id);
-	                items.add(item);
+	                System.out.println("Facility " + i + " : " + name + "Items: " + itemId + " Quantity " + itemQty);
+	                facilityinvs.add(facilityinv);
 	            }
 	        } 
 	        catch (ParserConfigurationException e) 
@@ -119,7 +121,7 @@ public class InventoryXmlLoaderImpl implements XmlLoadable
 	            e.printStackTrace();
 	        }
 
-	        return items;
+	        return facilityinvs;
 	    }
 
 

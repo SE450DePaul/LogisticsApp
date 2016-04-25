@@ -6,9 +6,11 @@ package logistics.facilityservice;
 public interface Facilitable
 {
 
-    void setId(String id);
-    String getId();
-    void setPrice(Double price);
-    Double getPrice();
+    void setName(String name);
+    String getName();
+    void setRate(Double rate);
+    Double getRate();
+    void setCost(Double cost);
+    Double getCost();
 
 }

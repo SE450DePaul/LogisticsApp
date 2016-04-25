@@ -28,10 +28,10 @@ public class FacilityXmlLoaderImpl implements XmlLoadable
 	        filepath = path;
 	 }
 	
-	    public ArrayList<Itemable> load() throws LoaderFileNotFoundException 
+	    public ArrayList<Facilitable> load() throws LoaderFileNotFoundException 
 	    {
 
-	        ArrayList<Itemable> items = new ArrayList<Itemable>();
+	        ArrayList<Facilitable>> facilities = new ArrayList<Facilitable>();
 
 	        try 
 	        {
@@ -72,13 +72,14 @@ public class FacilityXmlLoaderImpl implements XmlLoadable
 	                NodeList rateNode = element.getElementsByTagName("rate");
 	                NodeList costNode = element.getElementsByTagName("cost");
 	                
+	                String name = nameNode.item(0).getTextContent();
 	                Double rate = Double.parseDouble(rateNode.item(0).getTextContent());
 	                Double cost = Double.parseDouble(costNode.item(0).getTextContent());
 	                
-	                Itemable item = ItemFactory.build(id, price);
+	                Facilitable facility = FacilityFactory.build(name, rate, cost);
 
-	                System.out.println("No " + i + ": Item price: " + price + " Item Id: " + id);
-	                items.add(item);
+	                System.out.println("Facility " + i + " : " + name + " Rate: " +  rate + " Cost: " + cost);
+	                facilities.add(facility);
 	            }
 	        } 
 	        catch (ParserConfigurationException e) 
@@ -94,7 +95,7 @@ public class FacilityXmlLoaderImpl implements XmlLoadable
 	            e.printStackTrace();
 	        }
 
-	        return items;
+	        return facilities;
 	    }
 
 

@@ -3,34 +3,50 @@ package logistics.facilityinvtservice;
 /**
  * Created by uchennafokoye on 4/22/16.
  */
-public class FacilityInvImpl implements Itemable
+public class FacilityInvImpl implements FacilityInventable
 {
-    private String id;
-    private Double price;
+    private String facilityName;
+    private String inventoryId;
+    private Integer inventoryQuantity;
 
-    public FacilityInvImpl(String id, Double price)
+    public FacilityInvImpl(String name, String invenId, Integer invenQuantity)
     {
-        setId(id);
-        setPrice(price);
+        setName(name);
+        setItemId(invenId);
+        setQuantity(invenQuantity);
     }
 
-    public String getId() 
-    {
-        return id;
-    }
+  
+	public void setName(String name) 
+	{
+		facilityName = name;
+		
+	}
 
-    public void setId(String id)
-    {
-        this.id = id;
-    }
+	public String getName() 
+	{
+		return facilityName;
+	}
 
-    public void setPrice(Double price)
-    {
-        this.price = price;
-    }
+	public void setQuantity(Integer quantity) 
+	{
+		inventoryQuantity = quantity;
+		
+	}
 
-    public Double getPrice() 
-    {
-        return price;
-    }
+	public Integer getQuantity() 
+	{
+		return inventoryQuantity;
+	}
+
+	public void setItemId(String itemId) 
+	{
+		inventoryId = itemId;
+		
+	}
+
+	public String getItemId() 
+	{
+		return inventoryId;
+	}
 }
