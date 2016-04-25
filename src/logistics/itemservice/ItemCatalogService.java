@@ -1,27 +1,31 @@
 package logistics.itemservice;
 
 import logistics.exceptions.LoaderFileNotFoundException;
-import logistics.utilities.loader.Loader;
+import logistics.utilities.loader.XmlLoadable;
 import logistics.utilities.loader.factory.LoaderFactory;
 import logistics.itemservice.ItemDTO;
+import logistics.utilities.loader.factory.XmlLoaderFactoryImpl;
 
 import java.util.ArrayList;
 
 /**
- * Created by uchennafokoye on 4/22/16.
+ * Created by david
  */
 public final class ItemCatalogService 
 {
 
     private volatile static ItemCatalogService instance;
-    private Loader loader;
-    private ArrayList<Item> items = new ArrayList<>();
+    
+    private ArrayList<Itemable> items = new ArrayList<Itemable>();
+    
+    private XmlLoaderFactoryImpl loader;
+    private XmlLoadable file;
 
     private ItemCatalogService() 
     {
-            LoaderFactory loaderFactory = LoaderFactory.getLoaderFactory("item");
-            loader = loaderFactory.createLoader("xml", "data/item_catalog.xml");
-
+            loader = new XmlLoaderFactoryImpl();
+    		
+            
             try 
             {
                 items = loader.load();
@@ -30,15 +34,13 @@ public final class ItemCatalogService
             {
                 e.printStackTrace();
             }
-
-            // For debugging:
-            //int i = 1;
-            //for (Item item : items) {
-            //System.out.println("No " + i + " Item id: " + item.getId() + " Item price: " + item.getPrice());
-            //i++;
-            //}
     }
 
+   /* public XmlLoadable xmlload(String filetype, String filepath) 
+    {
+    	
+    }*/
+    
     public static ItemCatalogService getInstance() 
     {
         if (instance == null)

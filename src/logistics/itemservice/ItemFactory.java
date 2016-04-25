@@ -6,7 +6,7 @@ package logistics.itemservice;
 public class ItemFactory 
 {
 
-    public static Item build(String id, Double price)
+    public static Itemable build(String id, Double price)
     {
         return new ItemImpl(id, price);
     }

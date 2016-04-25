@@ -2,7 +2,7 @@ package logistics.utilities.loader;
 
 
 import logistics.exceptions.LoaderFileNotFoundException;
-import logistics.itemservice.Item;
+import logistics.itemservice.Itemable;
 import logistics.itemservice.ItemFactory;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
@@ -17,19 +17,19 @@ import java.util.ArrayList;
 /**
  * Created by uchennafokoye on 4/22/16.
  */
-public class ItemXMLLoaderImpl implements ItemLoader 
+public class ItemXmlLoaderImpl implements XmlLoadable 
 {
 
     private String filepath;
-    public ItemXMLLoaderImpl(String filepath)
+    public ItemXmlLoaderImpl(String filepath)
     {
         this.filepath = filepath;
     }
 
-    public ArrayList<Item> load() throws LoaderFileNotFoundException 
+    public ArrayList<Itemable> load() throws LoaderFileNotFoundException 
     {
 
-        ArrayList<Item> items = new ArrayList<Item>();
+        ArrayList<Itemable> items = new ArrayList<Itemable>();
 
         try 
         {
@@ -69,7 +69,7 @@ public class ItemXMLLoaderImpl implements ItemLoader
                 NodeList priceNode = element.getElementsByTagName("price");
                 Double price = Double.parseDouble(priceNode.item(0).getTextContent());
 
-                Item item = ItemFactory.build(id, price);
+                Itemable item = ItemFactory.build(id, price);
 
                 System.out.println("No " + i + ": Item price: " + price + " Item Id: " + id);
                 items.add(item);
@@ -93,9 +93,9 @@ public class ItemXMLLoaderImpl implements ItemLoader
 
 
 
-    public static void main(String[] args){
+/*    public static void main(String[] args){
 
-        ItemXMLLoaderImpl xmlLoader =  new ItemXMLLoaderImpl("src/data/item_catalog.xml");
+        ItemXmlLoaderImpl xmlLoader =  new ItemXmlLoaderImpl("src/data/item_catalog.xml");
         try 
         {
             xmlLoader.load();
@@ -104,5 +104,5 @@ public class ItemXMLLoaderImpl implements ItemLoader
         {
             e.printStackTrace();
         }
-    }
+    }*/
 }

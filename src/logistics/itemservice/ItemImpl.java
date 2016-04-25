@@ -3,7 +3,7 @@ package logistics.itemservice;
 /**
  * Created by uchennafokoye on 4/22/16.
  */
-public class ItemImpl implements Item
+public class ItemImpl implements Itemable
 {
     private String id;
     private Double price;

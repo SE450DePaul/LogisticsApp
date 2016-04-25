@@ -5,10 +5,10 @@ import logistics.exceptions.LoaderFileNotFoundException;
 import java.util.ArrayList;
 
 /**
- * Created by uchennafokoye on 4/23/16.
+ * Created by david
  */
-public interface Loader<Type> 
+public interface XmlLoadable 
 {
-    ArrayList<Type> load() throws LoaderFileNotFoundException;
+    ArrayList load() throws LoaderFileNotFoundException;
 
 }
