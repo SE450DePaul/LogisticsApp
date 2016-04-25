@@ -39,7 +39,7 @@ public class ItemXMLLoaderImpl implements ItemLoader
             File xml = new File(filepath);
             if (!xml.exists()) 
             {
-                throw new LoaderFileNotFoundException();
+                System.out.println("File does not exist");//throw new LoaderFileNotFoundException();
             }
 
             Document doc = db.parse(xml);
@@ -95,7 +95,7 @@ public class ItemXMLLoaderImpl implements ItemLoader
 
     public static void main(String[] args){
 
-        ItemXMLLoaderImpl xmlLoader =  new ItemXMLLoaderImpl("data/item_catalog.xml");
+        ItemXMLLoaderImpl xmlLoader =  new ItemXMLLoaderImpl("src/data/item_catalog.xml");
         try 
         {
             xmlLoader.load();
