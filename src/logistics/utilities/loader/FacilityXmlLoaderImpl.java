@@ -1,8 +1,23 @@
 package logistics.utilities.loader;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
 import logistics.exceptions.LoaderFileNotFoundException;
+import logistics.itemservice.ItemFactory;
+import logistics.itemservice.Itemable;
 
 public class FacilityXmlLoaderImpl implements XmlLoadable
 {
@@ -10,14 +25,91 @@ public class FacilityXmlLoaderImpl implements XmlLoadable
 	 private String filepath;
 	 public FacilityXmlLoaderImpl(String path)
 	 {
-	        path = filepath;
+	        filepath = path;
 	 }
 	
-	@Override
-	public ArrayList load() throws LoaderFileNotFoundException 
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
+	    public ArrayList<Itemable> load() throws LoaderFileNotFoundException 
+	    {
+
+	        ArrayList<Itemable> items = new ArrayList<Itemable>();
+
+	        try 
+	        {
+	            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+	            DocumentBuilder db = dbf.newDocumentBuilder();
+
+	            File xml = new File(filepath);
+	            if (!xml.exists()) 
+	            {
+	                /*System.out.println("File does not exist")*/throw new LoaderFileNotFoundException();
+	            }
+
+	            Document doc = db.parse(xml);
+	            Element documentElement = doc.getDocumentElement();
+	            documentElement.normalize();
+
+	            NodeList facilityEntries = documentElement.getChildNodes();
+	            for (int i = 0; i < facilityEntries.getLength(); i++) 
+	            {
+	                Node node = facilityEntries.item(i);
+	                if (node.getNodeType() == Node.TEXT_NODE) 
+	                {
+	                    continue;
+	                }
+
+	                String entryName = node.getNodeName();
+	                if (!entryName.equals("facility")) 
+	                {
+	                    continue;
+	                    //Or perhaps throw an error
+	                }
+
+	                NamedNodeMap attributes = node.getAttributes();
+	                Node namedItem = attributes.getNamedItem("id");
+	                String id = namedItem.getNodeValue();
+	                Element element = (Element) facilityEntries.item(i);
+	                NodeList nameNode = element.getElementsByTagName("name");
+	                NodeList rateNode = element.getElementsByTagName("rate");
+	                NodeList costNode = element.getElementsByTagName("cost");
+	                
+	                Double rate = Double.parseDouble(rateNode.item(0).getTextContent());
+	                Double cost = Double.parseDouble(costNode.item(0).getTextContent());
+	                
+	                Itemable item = ItemFactory.build(id, price);
+
+	                System.out.println("No " + i + ": Item price: " + price + " Item Id: " + id);
+	                items.add(item);
+	            }
+	        } 
+	        catch (ParserConfigurationException e) 
+	        {
+	            e.printStackTrace();
+	        } 
+	        catch (SAXException e) 
+	        {
+	            e.printStackTrace();
+	        } 
+	        catch (IOException e) 
+	        {
+	            e.printStackTrace();
+	        }
+
+	        return items;
+	    }
+
+
+
+	    public static void main(String[] args){
+
+	        FacilityXmlLoaderImpl xmlLoader =  new FacilityXmlLoaderImpl("src/data/facilities.xml");
+	        try 
+	        {
+	            xmlLoader.load();
+	        } 
+	        catch (LoaderFileNotFoundException e) 
+	        {
+	            e.printStackTrace();
+	        }
+	    }
 
 }

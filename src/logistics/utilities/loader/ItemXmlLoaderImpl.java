@@ -23,7 +23,7 @@ public class ItemXmlLoaderImpl implements XmlLoadable
     private String filepath;
     public ItemXmlLoaderImpl(String path)
     {
-        path = filepath;
+        filepath = path;
     }
 
     public ArrayList<Itemable> load() throws LoaderFileNotFoundException 
@@ -39,7 +39,7 @@ public class ItemXmlLoaderImpl implements XmlLoadable
             File xml = new File(filepath);
             if (!xml.exists()) 
             {
-                System.out.println("File does not exist");//throw new LoaderFileNotFoundException();
+                /*System.out.println("File does not exist")*/throw new LoaderFileNotFoundException();
             }
 
             Document doc = db.parse(xml);
