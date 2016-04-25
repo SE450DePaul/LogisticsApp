@@ -93,7 +93,7 @@ public class ItemXmlLoaderImpl implements XmlLoadable
 
 
 
-/*    public static void main(String[] args){
+    public static void main(String[] args){
 
         ItemXmlLoaderImpl xmlLoader =  new ItemXmlLoaderImpl("src/data/item_catalog.xml");
         try 
@@ -104,5 +104,5 @@ public class ItemXmlLoaderImpl implements XmlLoadable
         {
             e.printStackTrace();
         }
-    }*/
+    }
 }

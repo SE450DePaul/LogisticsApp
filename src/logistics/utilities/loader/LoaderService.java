@@ -1,5 +1,7 @@
 package logistics.utilities.loader;
 
+import java.util.ArrayList;
+
 import logistics.utilities.loader.XmlLoadable;
 import logistics.utilities.loader.factory.XmlLoaderFactoryImpl;
 
@@ -30,9 +32,9 @@ public class LoaderService
     }
 
 	
-	public XmlLoadable xmlload(String type, String path)
+	public ArrayList xmlload(String type, String path, String data)
 	{
-		XmlLoadable loader = factory.build(type, path);
+		ArrayList loader = factory.build(type, path, data);
 		return loader;
 	}
 	

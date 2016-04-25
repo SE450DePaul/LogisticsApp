@@ -1,5 +1,7 @@
 package logistics.utilities.loader.factory;
 
+import java.util.ArrayList;
+
 import logistics.utilities.loader.XmlLoadable;
 
 /**
@@ -7,6 +9,6 @@ import logistics.utilities.loader.XmlLoadable;
  */
 public interface LoaderFactory 
 {
-    XmlLoadable build(String file_type, String file_path);
+    ArrayList build(String file_type, String file_path, String data);
         
 }

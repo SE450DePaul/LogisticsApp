@@ -1,6 +1,7 @@
 package logistics.utilities.loader;
 
 import logistics.exceptions.LoaderFileNotFoundException;
+import logistics.itemservice.Itemable;
 
 import java.util.ArrayList;
 
@@ -9,6 +10,6 @@ import java.util.ArrayList;
  */
 public interface XmlLoadable 
 {
-    ArrayList load() throws LoaderFileNotFoundException;
+    ArrayList<Itemable> load() throws LoaderFileNotFoundException;
 
 }

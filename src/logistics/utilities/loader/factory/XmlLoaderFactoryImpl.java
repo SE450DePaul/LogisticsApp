@@ -1,21 +1,37 @@
 package logistics.utilities.loader.factory;
 
 
+import java.util.ArrayList;
+
 import logistics.exceptions.LoaderFileNotFoundException;
 import logistics.utilities.loader.FacilityXmlLoaderImpl;
 import logistics.utilities.loader.InventoryXmlLoaderImpl;
 import logistics.utilities.loader.ItemXmlLoaderImpl;
 import logistics.utilities.loader.XmlLoadable;
+import logistics.itemservice.Itemable;
 
 /**
  * Created by david
  */
 public class XmlLoaderFactoryImpl implements LoaderFactory 
 {
-
-    public XmlLoadable build(String file_type, String filepath) 
+		
+	public ArrayList build(String file_type, String filepath, String data)  
     {
-    	return new ItemXmlLoaderImpl(filepath);
+		try {
+			return new ItemXmlLoaderImpl(filepath).load();
+		} catch (LoaderFileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	/*	if (file_type.equals("xml") && (data.equals("item")))
+    	{
+			
+    	}
+		
+		
     	
  /*   	if (file_type.equals("xml"))
     	{
