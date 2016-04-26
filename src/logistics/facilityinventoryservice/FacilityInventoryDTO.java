@@ -5,13 +5,13 @@ package logistics.facilityinventoryservice;
  */
 
 //This class need a review to validate its usefulness
-public class FacilityInvDTO 
+public class FacilityInventoryDTO 
 {
 
     public String id;
     public Double price;
 
-    public FacilityInvDTO(String id, Double price)
+    public FacilityInventoryDTO(String id, Double price)
     {
         this.id = id;
         this.price = price;
