@@ -27,7 +27,6 @@ import logistics.utilities.exceptions.LoaderFileNotFoundException;
 
 public class InventoryXmlLoaderImpl implements XmlLoadable
 {
-
 	 private String name;
 	 private String itemId;
 	 private int itemQty;
@@ -41,7 +40,6 @@ public class InventoryXmlLoaderImpl implements XmlLoadable
 	
 	    public void /*ArrayList<FacilityInventorable>*/ load() throws logistics.utilities.exceptions.LoaderFileNotFoundException 
 	    {
-
 	        ArrayList<FacilityInventorable> facilityinvs = new ArrayList<FacilityInventorable>();
 
 	        try 
@@ -52,7 +50,7 @@ public class InventoryXmlLoaderImpl implements XmlLoadable
 	            File xml = new File(filepath);
 	            if (!xml.exists()) 
 	            {
-	                System.out.println("File does not exist"); /*throw new LoaderFileNotFoundException();*/
+	                /*System.out.println("File does not exist");*/ throw new LoaderFileNotFoundException();
 	            }
 
 	            Document doc = db.parse(xml);
@@ -130,14 +128,11 @@ public class InventoryXmlLoaderImpl implements XmlLoadable
 	        {
 	            e.printStackTrace();
 	        }
-
 	        //return facilityinvs;
 	    }
 
-
-
-	    public static void main(String[] args){
-
+	    public static void main(String[] args)
+	    {
 	        InventoryXmlLoaderImpl xmlLoader =  new InventoryXmlLoaderImpl();//"src/logistics/data/facility_inventory.xml");
 	        try 
 	        {
@@ -148,5 +143,4 @@ public class InventoryXmlLoaderImpl implements XmlLoadable
 	            e.printStackTrace();
 	        }
 	    }
-
 }

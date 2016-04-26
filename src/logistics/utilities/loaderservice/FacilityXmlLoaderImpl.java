@@ -37,7 +37,6 @@ public class FacilityXmlLoaderImpl implements XmlLoadable
 	
 	    public void /*ArrayList<Facilitable>*/ load() throws LoaderFileNotFoundException
 	    {
-
 	        ArrayList<Facilitable> facilities = new ArrayList<Facilitable>();
 
 	        try 
@@ -102,14 +101,11 @@ public class FacilityXmlLoaderImpl implements XmlLoadable
 	        {
 	            e.printStackTrace();
 	        }
-
 	        //return facilities;
 	    }
 
-
-
-	    public static void main(String[] args){
-
+	    public static void main(String[] args)
+	    {
 	        FacilityXmlLoaderImpl xmlLoader =  new FacilityXmlLoaderImpl();//"src/logistics/xmldata/facilities.xml");
 	        try 
 	        {
@@ -120,5 +116,4 @@ public class FacilityXmlLoaderImpl implements XmlLoadable
 	            e.printStackTrace();
 	        }
 	    }
-
 }

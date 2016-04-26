@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 /**
  * Created by uchennafokoye on 4/22/16.
+ * Modified by @author David Olorundare
  */
 public class ItemXmlLoaderImpl implements XmlLoadable 
 {
@@ -28,7 +29,6 @@ public class ItemXmlLoaderImpl implements XmlLoadable
 
     public /*ArrayList<Itemable>*/ void load() throws LoaderFileNotFoundException 
     {
-
         ArrayList<Itemable> items = new ArrayList<Itemable>();
 
         try 
@@ -89,11 +89,8 @@ public class ItemXmlLoaderImpl implements XmlLoadable
         {
             e.printStackTrace();
         }
-
         //return items;
     }
-
-
 
     public static void main(String[] args){
 
