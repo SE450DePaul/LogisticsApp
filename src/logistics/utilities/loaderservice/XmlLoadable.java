@@ -1,4 +1,4 @@
-package logistics.utilities.loader;
+package logistics.utilities.loaderservice;
 
 import logistics.utilities.exceptions.LoaderFileNotFoundException;
 import logistics.itemservice.Itemable;

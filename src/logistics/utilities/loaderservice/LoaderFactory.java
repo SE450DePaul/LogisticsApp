@@ -1,8 +1,6 @@
-package logistics.utilities.loader.factory;
+package logistics.utilities.loaderservice;
 
 import java.util.ArrayList;
-
-import logistics.utilities.loader.XmlLoadable;
 
 /**
  * @author David Olorundare

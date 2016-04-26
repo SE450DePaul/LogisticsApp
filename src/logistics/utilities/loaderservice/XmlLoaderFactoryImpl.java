@@ -1,13 +1,9 @@
-package logistics.utilities.loader.factory;
+package logistics.utilities.loaderservice;
 
 
 import java.util.ArrayList;
 
 import logistics.exceptions.LoaderFileNotFoundException;
-import logistics.utilities.loader.FacilityXmlLoaderImpl;
-import logistics.utilities.loader.InventoryXmlLoaderImpl;
-import logistics.utilities.loader.ItemXmlLoaderImpl;
-import logistics.utilities.loader.XmlLoadable;
 import logistics.itemservice.Itemable;
 
 /**
