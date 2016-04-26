@@ -16,6 +16,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import logistics.utilities.exceptions.LoaderFileNotFoundException;
+import logistics.facilityservice.Facilitable;
+import logistics.facilityservice.FacilityFactory;
 import logistics.itemservice.ItemFactory;
 import logistics.itemservice.Itemable;
 
@@ -24,7 +26,7 @@ import logistics.itemservice.Itemable;
  * @author David Olorundare
  *
  */
-public class FacilityXmlLoaderImpl implements XmlLoadable
+public class FacilityXmlLoaderImpl //implements XmlLoadable
 {
 
 	 private String filepath;
@@ -33,7 +35,7 @@ public class FacilityXmlLoaderImpl implements XmlLoadable
 	        filepath = path;
 	 }
 	
-	    public ArrayList<Facilitable> load() throws LoaderFileNotFoundException 
+	    public void /*ArrayList<Facilitable>*/ load() throws LoaderFileNotFoundException
 	    {
 
 	        ArrayList<Facilitable> facilities = new ArrayList<Facilitable>();
@@ -84,7 +86,7 @@ public class FacilityXmlLoaderImpl implements XmlLoadable
 	                
 	                Facilitable facility = FacilityFactory.build(name, rate, cost);
 
-	                System.out.println("Facility " + i + " : " + name + " Rate: " +  rate + " Cost: " + cost);
+	                System.out.println("Facility " + i + ": " + name + " [ Rate: " +  rate + ", Cost: " + cost + " ]\n");
 	                facilities.add(facility);
 	            }
 	        } 
@@ -101,7 +103,7 @@ public class FacilityXmlLoaderImpl implements XmlLoadable
 	            e.printStackTrace();
 	        }
 
-	        return facilities;
+	        //return facilities;
 	    }
 
 
