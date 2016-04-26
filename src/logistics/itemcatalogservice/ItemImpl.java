@@ -1,4 +1,4 @@
-package logistics.itemservice;
+package logistics.itemcatalogservice;
 
 /**
  * Created by uchennafokoye on 4/22/16.
