@@ -1,12 +1,12 @@
 package logistics.utilities.loader;
 
-import logistics.exceptions.LoaderFileNotFoundException;
+import logistics.utilities.exceptions.LoaderFileNotFoundException;
 import logistics.itemservice.Itemable;
 
 import java.util.ArrayList;
 
 /**
- * Created by david
+ * @author David Olorundare
  */
 public interface XmlLoadable 
 {

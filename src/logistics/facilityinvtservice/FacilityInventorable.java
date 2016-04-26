@@ -1,7 +1,7 @@
 package logistics.facilityinvtservice;
 
 /**
- * Created by uchennafokoye on 4/22/16.
+ * @author David Olorundare
  */
 public interface FacilityInventorable
 {

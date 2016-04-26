@@ -11,7 +11,7 @@ import logistics.utilities.loader.XmlLoadable;
 import logistics.itemservice.Itemable;
 
 /**
- * Created by david
+ * @author David Olorundare
  */
 public class XmlLoaderFactoryImpl implements LoaderFactory 
 {

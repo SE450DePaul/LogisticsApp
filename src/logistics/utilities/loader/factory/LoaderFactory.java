@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import logistics.utilities.loader.XmlLoadable;
 
 /**
- * Created by david
+ * @author David Olorundare
  */
 public interface LoaderFactory 
 {

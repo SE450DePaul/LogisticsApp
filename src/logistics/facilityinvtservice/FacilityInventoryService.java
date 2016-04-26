@@ -1,6 +1,6 @@
 package logistics.facilityinvtservice;
 
-import logistics.exceptions.LoaderFileNotFoundException;
+import logistics.utilities.exceptions.LoaderFileNotFoundException;
 import logistics.utilities.loader.XmlLoadable;
 import logistics.utilities.loader.factory.LoaderFactory;
 import logistics.itemservice.ItemDTO;
@@ -9,7 +9,7 @@ import logistics.utilities.loader.factory.XmlLoaderFactoryImpl;
 import java.util.ArrayList;
 
 /**
- * Created by david
+ * @author David Olorundare
  */
 public final class FacilityInventoryService 
 {

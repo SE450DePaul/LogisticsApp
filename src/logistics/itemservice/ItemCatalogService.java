@@ -1,6 +1,6 @@
 package logistics.itemservice;
 
-import logistics.exceptions.LoaderFileNotFoundException;
+import logistics.utilities.exceptions.LoaderFileNotFoundException;
 import logistics.utilities.loader.XmlLoadable;
 import logistics.utilities.loader.factory.LoaderFactory;
 import logistics.itemservice.ItemDTO;

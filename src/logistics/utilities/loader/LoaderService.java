@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import logistics.utilities.loader.XmlLoadable;
 import logistics.utilities.loader.factory.XmlLoaderFactoryImpl;
 
+/**
+ * 
+ * @author David Olorundare
+ *
+ */
 public class LoaderService 
 {
 	private volatile static LoaderService instance;

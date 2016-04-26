@@ -1,7 +1,7 @@
 package logistics.utilities.loader;
 
 
-import logistics.exceptions.LoaderFileNotFoundException;
+import logistics.utilities.exceptions.LoaderFileNotFoundException;
 import logistics.itemservice.Itemable;
 import logistics.itemservice.ItemFactory;
 import org.w3c.dom.*;

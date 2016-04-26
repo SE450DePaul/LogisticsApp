@@ -15,10 +15,15 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import logistics.exceptions.LoaderFileNotFoundException;
+import logistics.utilities.exceptions.LoaderFileNotFoundException;
 import logistics.itemservice.ItemFactory;
 import logistics.itemservice.Itemable;
 
+/**
+ * 
+ * @author David Olorundare
+ *
+ */
 public class FacilityXmlLoaderImpl implements XmlLoadable
 {
 

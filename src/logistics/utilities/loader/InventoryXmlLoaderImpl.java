@@ -15,9 +15,15 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import logistics.exceptions.LoaderFileNotFoundException;
+import logistics.utilities.exceptions.LoaderFileNotFoundException;
 import logistics.facilityinvtservice.FacilityInventorable;
 import logistics.facilityinvtservice.FacilityInvFactory;
+
+/**
+ * 
+ * @author David Olorundare
+ *
+ */
 
 public class InventoryXmlLoaderImpl //implements XmlLoadable
 {
@@ -33,7 +39,7 @@ public class InventoryXmlLoaderImpl //implements XmlLoadable
 	        filepath = path;
 	 }
 	
-	    public void /*ArrayList<FacilityInventorable>*/ load() throws LoaderFileNotFoundException 
+	    public void /*ArrayList<FacilityInventorable>*/ load() throws logistics.utilities.exceptions.LoaderFileNotFoundException 
 	    {
 
 	        ArrayList<FacilityInventorable> facilityinvs = new ArrayList<FacilityInventorable>();

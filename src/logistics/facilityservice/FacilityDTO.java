@@ -1,7 +1,7 @@
 package logistics.facilityservice;
 
 /**
- * Created by uchennafokoye on 4/23/16.
+ * @author David Olorundare
  */
 public class FacilityDTO 
 {
