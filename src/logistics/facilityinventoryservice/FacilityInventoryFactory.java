@@ -3,11 +3,11 @@ package logistics.facilityinventoryservice;
 /**
  * @author David Olorundare
  */
-public class FacilityInvFactory 
+public class FacilityInventoryFactory 
 {
 
     public static FacilityInventorable build(String name, String itemId, int quantity)
     {
-        return new FacilityInvImpl(name, itemId, quantity);
+        return new FacilityInventoryImpl(name, itemId, quantity);
     }
 }

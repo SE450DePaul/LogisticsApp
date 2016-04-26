@@ -3,6 +3,8 @@ package logistics.facilityinventoryservice;
 /**
  * @author David Olorundare
  */
+
+//This class need a review to validate its usefulness
 public class FacilityInvDTO 
 {
 

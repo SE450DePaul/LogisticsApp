@@ -5,4 +5,5 @@ package logistics.utilities.exceptions;
  */
 public class LoaderFileNotFoundException extends Exception 
 {
+	
 }

@@ -15,9 +15,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import logistics.facilityinventoryservice.FacilityInventoryFactory;
+import logistics.facilityinventoryservice.FacilityInventorable;
 import logistics.utilities.exceptions.LoaderFileNotFoundException;
-import logistics.facilityinvtservice.FacilityInventorable;
-import logistics.facilityinvtservice.FacilityInvFactory;
 
 /**
  * 
@@ -112,7 +112,7 @@ public class InventoryXmlLoaderImpl //implements XmlLoadable
 	                    itemDescriptions.add(" " + itemId + "|Quantity: " + itemQuantity);
 	                }    
 	                
-	                FacilityInventorable facilityinv = FacilityInvFactory.build(name, itemId, itemQty );
+	                FacilityInventorable facilityinv = FacilityInventoryFactory.build(name, itemId, itemQty );
 
 	                System.out.println("Facility " + i + ": " + name + "  Facility Items: " + itemDescriptions + "\n"); //" Facility Items: " + itemId + ", Quantity: " + itemQty + "\n");
 	                facilityinvs.add(facilityinv);
