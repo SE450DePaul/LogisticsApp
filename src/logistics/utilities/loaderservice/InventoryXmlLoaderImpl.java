@@ -25,7 +25,7 @@ import logistics.utilities.exceptions.LoaderFileNotFoundException;
  *
  */
 
-public class InventoryXmlLoaderImpl //implements XmlLoadable
+public class InventoryXmlLoaderImpl implements XmlLoadable
 {
 
 	 private String name;
@@ -34,9 +34,9 @@ public class InventoryXmlLoaderImpl //implements XmlLoadable
 	 private String filepath;
 	 private String itemQuantity;
 	 
-	 public InventoryXmlLoaderImpl(String path)
+	 public InventoryXmlLoaderImpl() //String path)
 	 {
-	        filepath = path;
+	        filepath = "src/logistics/xmldata/facility_inventory.xml";
 	 }
 	
 	    public void /*ArrayList<FacilityInventorable>*/ load() throws logistics.utilities.exceptions.LoaderFileNotFoundException 
@@ -138,7 +138,7 @@ public class InventoryXmlLoaderImpl //implements XmlLoadable
 
 	    public static void main(String[] args){
 
-	        InventoryXmlLoaderImpl xmlLoader =  new InventoryXmlLoaderImpl("src/data/facility_inventory.xml");
+	        InventoryXmlLoaderImpl xmlLoader =  new InventoryXmlLoaderImpl();//"src/logistics/data/facility_inventory.xml");
 	        try 
 	        {
 	            xmlLoader.load();

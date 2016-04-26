@@ -1,7 +1,5 @@
 package logistics.utilities.loaderservice;
 
-import java.util.ArrayList;
-
 import logistics.utilities.loaderservice.XmlLoadable;
 
 /**
@@ -12,7 +10,6 @@ import logistics.utilities.loaderservice.XmlLoadable;
 public class LoaderService 
 {
 	private volatile static LoaderService instance;
-	private XmlLoaderFactoryImpl factory;
 	
 	private LoaderService()
 	{
@@ -36,11 +33,17 @@ public class LoaderService
     }
 
 	
-	public ArrayList xmlload(String type, String path, String data)
+	public XmlLoadable xmlload(String data)
 	{
-		ArrayList loader = factory.build(type, path, data);
+		XmlLoadable loader = XmlLoaderFactory.buildLoader(data);
 		return loader;
 	}
 	
-	
+	// Placeholder method
+	public void returnLoadedData()
+	{
+		// method should return data/DTO to caller, this data could either be
+		// assembled by either the xmlloader implementations or by a dedicated
+		// DTO assembler pattern or factory.
+	}
 }

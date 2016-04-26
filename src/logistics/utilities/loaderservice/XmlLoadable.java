@@ -10,6 +10,6 @@ import java.util.ArrayList;
  */
 public interface XmlLoadable 
 {
-    ArrayList<Itemable> load() throws LoaderFileNotFoundException;
+    /*ArrayList<Itemable>*/public void load() throws LoaderFileNotFoundException;
 
 }

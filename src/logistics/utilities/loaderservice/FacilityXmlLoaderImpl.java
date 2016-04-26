@@ -26,13 +26,13 @@ import logistics.itemservice.Itemable;
  * @author David Olorundare
  *
  */
-public class FacilityXmlLoaderImpl //implements XmlLoadable
+public class FacilityXmlLoaderImpl implements XmlLoadable
 {
-
-	 private String filepath;
-	 public FacilityXmlLoaderImpl(String path)
+	 private String filepath; 
+	 
+	 public FacilityXmlLoaderImpl()//String path)
 	 {
-	        filepath = path;
+	        filepath = "src/logistics/xmldata/facilities.xml";
 	 }
 	
 	    public void /*ArrayList<Facilitable>*/ load() throws LoaderFileNotFoundException
@@ -110,7 +110,7 @@ public class FacilityXmlLoaderImpl //implements XmlLoadable
 
 	    public static void main(String[] args){
 
-	        FacilityXmlLoaderImpl xmlLoader =  new FacilityXmlLoaderImpl("src/data/facilities.xml");
+	        FacilityXmlLoaderImpl xmlLoader =  new FacilityXmlLoaderImpl();//"src/logistics/xmldata/facilities.xml");
 	        try 
 	        {
 	            xmlLoader.load();

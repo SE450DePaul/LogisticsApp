@@ -2,9 +2,7 @@ package logistics.facilityservice;
 
 import logistics.utilities.exceptions.LoaderFileNotFoundException;
 import logistics.itemservice.ItemDTO;
-import logistics.utilities.loaderservice.LoaderFactory;
 import logistics.utilities.loaderservice.XmlLoadable;
-import logistics.utilities.loaderservice.XmlLoaderFactoryImpl;
 
 import java.util.ArrayList;
 
@@ -18,9 +16,6 @@ public final class FacilityService
     
     private ArrayList<Facilitable> items = new ArrayList<Facilitable>();
     
-    private XmlLoaderFactoryImpl loader;
-    private XmlLoadable file;
-
     private FacilityService() 
     {
           /*  loader = new XmlLoaderFactoryImpl();

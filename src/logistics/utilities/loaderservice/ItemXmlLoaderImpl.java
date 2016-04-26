@@ -19,14 +19,14 @@ import java.util.ArrayList;
  */
 public class ItemXmlLoaderImpl implements XmlLoadable 
 {
-
-    private String filepath;
-    public ItemXmlLoaderImpl(String path)
+	private String filepath;
+    
+    public ItemXmlLoaderImpl()
     {
-        filepath = path;
+    	filepath = "src/logistics/xmldata/item_catalog.xml";
     }
 
-    public ArrayList<Itemable> load() throws LoaderFileNotFoundException 
+    public /*ArrayList<Itemable>*/ void load() throws LoaderFileNotFoundException 
     {
 
         ArrayList<Itemable> items = new ArrayList<Itemable>();
@@ -90,14 +90,14 @@ public class ItemXmlLoaderImpl implements XmlLoadable
             e.printStackTrace();
         }
 
-        return items;
+        //return items;
     }
 
 
 
     public static void main(String[] args){
 
-        ItemXmlLoaderImpl xmlLoader =  new ItemXmlLoaderImpl("src/data/item_catalog.xml");
+        ItemXmlLoaderImpl xmlLoader =  new ItemXmlLoaderImpl();//"src/logistics/xmldata/item_catalog.xml");
         try 
         {
             xmlLoader.load();
