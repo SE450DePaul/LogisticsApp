@@ -109,12 +109,12 @@ public class InventoryXmlLoaderImpl //implements XmlLoadable
 	                    itemQty = Integer.parseInt(itemQuantity);
 	                    
 	                 // Create a string summary of the item
-	                    itemDescriptions.add(itemId + "with Quantity " + itemQuantity);
+	                    itemDescriptions.add(" " + itemId + "|Quantity: " + itemQuantity);
 	                }    
 	                
 	                FacilityInventorable facilityinv = FacilityInvFactory.build(name, itemId, itemQty );
 
-	                System.out.println("Facility " + i + " : " + name + "Items: " + itemId + " Quantity " + itemQty);
+	                System.out.println("Facility " + i + ": " + name + "  Facility Items: " + itemDescriptions + "\n"); //" Facility Items: " + itemId + ", Quantity: " + itemQty + "\n");
 	                facilityinvs.add(facilityinv);
 	            }
 	        } 
