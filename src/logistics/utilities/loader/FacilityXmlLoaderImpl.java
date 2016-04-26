@@ -64,9 +64,10 @@ public class FacilityXmlLoaderImpl implements XmlLoadable
 	                    //Or perhaps throw an error
 	                }
 
-	                NamedNodeMap attributes = node.getAttributes();
+	               /* NamedNodeMap attributes = node.getAttributes();
 	                Node namedItem = attributes.getNamedItem("id");
-	                String id = namedItem.getNodeValue();
+	                String id = namedItem.getNodeValue();*/
+	                
 	                Element element = (Element) facilityEntries.item(i);
 	                NodeList nameNode = element.getElementsByTagName("name");
 	                NodeList rateNode = element.getElementsByTagName("rate");

@@ -7,9 +7,9 @@ public class FacilityInvImpl implements FacilityInventorable
 {
     private String facilityName;
     private String inventoryId;
-    private Integer inventoryQuantity;
+    private int inventoryQuantity;
 
-    public FacilityInvImpl(String name, String invenId, Integer invenQuantity)
+    public FacilityInvImpl(String name, String invenId, int invenQuantity)
     {
         setName(name);
         setItemId(invenId);
@@ -28,13 +28,13 @@ public class FacilityInvImpl implements FacilityInventorable
 		return facilityName;
 	}
 
-	public void setQuantity(Integer quantity) 
+	public void setQuantity(int quantity) 
 	{
 		inventoryQuantity = quantity;
 		
 	}
 
-	public Integer getQuantity() 
+	public int getQuantity() 
 	{
 		return inventoryQuantity;
 	}

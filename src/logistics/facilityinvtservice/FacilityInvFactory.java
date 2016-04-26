@@ -6,7 +6,7 @@ package logistics.facilityinvtservice;
 public class FacilityInvFactory 
 {
 
-    public static FacilityInventorable build(String name, String itemId, Integer quantity)
+    public static FacilityInventorable build(String name, String itemId, int quantity)
     {
         return new FacilityInvImpl(name, itemId, quantity);
     }

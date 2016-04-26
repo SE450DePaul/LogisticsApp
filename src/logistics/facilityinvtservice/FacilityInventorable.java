@@ -10,7 +10,7 @@ public interface FacilityInventorable
     String getName();
     void setItemId(String itemId);
     String getItemId();
-    void setQuantity(Integer quantity);
-    Integer getQuantity();
+    void setQuantity(int quantity);
+    int getQuantity();
 
 }

@@ -63,8 +63,10 @@ public class ItemXmlLoaderImpl implements XmlLoadable
                 }
 
                 NamedNodeMap attributes = node.getAttributes();
+                
                 Node namedItem = attributes.getNamedItem("id");
                 String id = namedItem.getNodeValue();
+                
                 Element element = (Element) itemEntries.item(i);
                 NodeList priceNode = element.getElementsByTagName("price");
                 Double price = Double.parseDouble(priceNode.item(0).getTextContent());

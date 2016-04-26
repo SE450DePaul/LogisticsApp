@@ -22,9 +22,11 @@ import logistics.facilityinvtservice.FacilityInvFactory;
 public class InventoryXmlLoaderImpl //implements XmlLoadable
 {
 
+	 private String name;
 	 private String itemId;
-	 private Integer itemQty;
+	 private int itemQty;
 	 private String filepath;
+	 private String itemQuantity;
 	 
 	 public InventoryXmlLoaderImpl(String path)
 	 {
@@ -66,13 +68,16 @@ public class InventoryXmlLoaderImpl //implements XmlLoadable
 	                    continue;
 	                    //Or perhaps throw an error
 	                }
-
+	             /*
 	               NamedNodeMap attributes = node.getAttributes();
 	              Node namedItem = attributes.getNamedItem("id");
 	               String id = namedItem.getNodeValue();
+	               */
+	               
+	             // Get a named nodes
 	                Element element = (Element) facilityInvEntries.item(i);
 	                NodeList nameNode = element.getElementsByTagName("name");
-	                String name = nameNode.item(0).getTextContent();
+	                name = nameNode.item(0).getTextContent();
 	                
 	             // Get all nodes named "Item" - there can be 0 or more
 	                ArrayList<String> itemDescriptions = new ArrayList<>();
@@ -94,16 +99,13 @@ public class InventoryXmlLoaderImpl //implements XmlLoadable
 	                    // Get some named nodes
 	                    element = (Element) itemList.item(j);
 	                    itemId = element.getElementsByTagName("id").item(0).getTextContent();
-	                    String itemQuantity = element.getElementsByTagName("quantity").item(0).getTextContent();
+	                    itemQuantity = element.getElementsByTagName("quantity").item(0).getTextContent();
 	                    itemQty = Integer.parseInt(itemQuantity);
 	                    
 	                 // Create a string summary of the item
 	                    itemDescriptions.add(itemId + "with Quantity " + itemQuantity);
 	                }    
 	                
-	                
-	                
-
 	                FacilityInventorable facilityinv = FacilityInvFactory.build(name, itemId, itemQty );
 
 	                System.out.println("Facility " + i + " : " + name + "Items: " + itemId + " Quantity " + itemQty);
