@@ -1,4 +1,4 @@
-package logistics.exceptions;
+package logistics.utilities.exceptions;
 
 /**
  * Created by uchennafokoye on 4/22/16.
