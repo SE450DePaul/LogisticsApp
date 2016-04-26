@@ -1,4 +1,4 @@
-package logistics.facilityinvtservice;
+package logistics.facilityinventoryservice;
 
 /**
  * @author David Olorundare

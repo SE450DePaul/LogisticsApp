@@ -1,4 +1,4 @@
-package logistics.facilityinvtservice;
+package logistics.facilityinventoryservice;
 
 import logistics.utilities.exceptions.LoaderFileNotFoundException;
 import logistics.itemservice.ItemDTO;
